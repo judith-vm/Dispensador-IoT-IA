@@ -1,58 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registros de Alimentación de Perros</title>
     <!-- Estilos de Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous" />
+  </head>
+  <body>
     <div class="container mt-5">
-        <h2 class="mb-4">Registros de Alimentación de Perros</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Fecha y Hora (Hora local de México)</th>
-                </tr>
-            </thead>
-            <tbody id="tabla-registros">
-                <!-- Aquí se mostrarán los registros -->
-            </tbody>
-        </table>
-        <div class="text-center">
-            <a href="/index.html" class="btn btn-primary">Regresar al inicio</a>
-        </div>
+      <h2 class="mb-4">Registros de Alimentacion de Perros</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Fecha y Hora</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-registros">
+          <!-- Aquí se mostrarán los registros -->
+        </tbody>
+      </table>
+      <div class="text-center">
+        <a href="/index.html" class="btn btn-primary">Regresar al inicio</a>
+      </div>
     </div>
 
     <!-- Scripts de Bootstrap (opcional si no necesitas funcionalidades JS de Bootstrap) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
 
     <!-- Script para obtener y mostrar los registros de la base de datos -->
     <script>
-        // Función para obtener los registros de la base de datos y mostrarlos en la tabla
-        function obtenerRegistros() {
-            fetch('https://ysyfgxarumdyuezphqla.supabase.co/rest/v1/feeding_times', {
-                headers: {
-                    'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlzeWZneGFydW1keXVlenBocWxhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1NTU4MTEsImV4cCI6MjAzMTEzMTgxMX0.2UVGaVUwXmepgbp8WrRt6pOKhjrk7OT0C-PV7kTPHpE'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                const tablaBody = document.getElementById('tabla-registros');
-                tablaBody.innerHTML = ''; // Limpiar la tabla antes de agregar los nuevos registros
-                data.forEach(registro => {
-                    const fechaHora = new Date(registro.datetime);
-                    const fechaHoraLocal = fechaHora.toLocaleString('es-MX', { timeZone: 'America/Mexico_City' });
-                    const fila = `<tr><td>${fechaHoraLocal}</td></tr>`;
-                    tablaBody.insertAdjacentHTML('beforeend', fila);
-                });
-            })
-            .catch(error => console.error('Error al obtener los registros:', error));
-        }
+      // Función para obtener los registros de la base de datos y mostrarlos en la tabla
+      function obtenerRegistros() {
+        fetch(
+          "https://ysyfgxarumdyuezphqla.supabase.co/rest/v1/feeding_times",
+          {
+            headers: {
+              apikey:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlzeWZneGFydW1keXVlenBocWxhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU1NTU4MTEsImV4cCI6MjAzMTEzMTgxMX0.2UVGaVUwXmepgbp8WrRt6pOKhjrk7OT0C-PV7kTPHpE",
+            },
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            const tablaBody = document.getElementById("tabla-registros");
+            tablaBody.innerHTML = ""; // Limpiar la tabla antes de agregar los nuevos registros
+            data.forEach((registro) => {
+              const fechaHora = new Date(registro.datetime);
+              const fechaHoraLocal = fechaHora.toLocaleString("es-MX", {
+                timeZone: "America/Mexico_City",
+              });
+              const fila = `<tr><td>${fechaHoraLocal}</td></tr>`;
+              tablaBody.insertAdjacentHTML("beforeend", fila);
+            });
+          })
+          .catch((error) =>
+            console.error("Error al obtener los registros:", error)
+          );
+      }
 
-        // Llamar a la función para obtener y mostrar los registros al cargar la página
-        window.onload = obtenerRegistros;
+      // Llamar a la función para obtener y mostrar los registros al cargar la página
+      window.onload = obtenerRegistros;
     </script>
-</body>
+  </body>
 </html>
