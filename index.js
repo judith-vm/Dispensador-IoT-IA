@@ -114,10 +114,12 @@ function predecir() {
 
     if (resultado < 0.9) {
       respuesta = " ";
+      respuesta = " ";
     } else if (resultado > 0.9) {
       // Insertar registro en la base de datos
       respuesta = "Perro detectado";
       insertarRegistroEnBaseDeDatos();
+      esp320();
       esp320();
     }
     document.getElementById("resultado").innerHTML = respuesta;
