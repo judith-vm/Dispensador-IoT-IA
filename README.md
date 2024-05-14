@@ -1,4 +1,4 @@
-# 🔐 Sistema de Dispensador de comida con Facial con IA
+# 🐕 Sistema de Dispensador de comida con Facial con IA
 ### Este proyecto consiste en un sistema dispensador de comida para perros que tiene una autenticación que utiliza inteligencia artificial para comparar el rostro para confirmar que se trate de un perro. Una vez autenticado, habra un mecanismo con un esp32 y un servomotor para comenzar a liberar la comida.
 
 # 🚀 Funcionalidades
