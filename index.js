@@ -113,34 +113,34 @@ function predecir() {
     var respuesta;
 
     if (resultado < 0.9) {
-      respuesta = "prueba";
+      respuesta = " ";
     } else if (resultado > 0.9) {
       // Insertar registro en la base de datos
       respuesta = "Perro detectado";
       insertarRegistroEnBaseDeDatos();
-      //  esp320();
+      esp320();
     }
     document.getElementById("resultado").innerHTML = respuesta;
   }
 
-  setTimeout(predecir, 6150);
+  setTimeout(predecir, 7150);
 }
 
-// function esp320() {
-//     fetch('http://192.168.1.71/dog_detected', {
-//             method: 'POST'
-//         })
-//         .then(response => {
-//             console.log('Solicitud enviada al ESP32');
-//             // Redirigir a index.html después de enviar la solicitud
-//             //window.location.href = '/index.html';
-//         })
-//         .catch(error => {
-//             console.error('Error al enviar la solicitud:', error);
-//             // En caso de error, también redirigir a index.html
-//            // window.location.href = '/index.html';
-//         });
-// }
+function esp320() {
+    fetch('http://192.168.1.71/dog_detected', {
+            method: 'POST'
+        })
+        .then(response => {
+            console.log('Solicitud enviada al ESP32');
+            // Redirigir a index.html después de enviar la solicitud
+            //window.location.href = '/index.html';
+        })
+        .catch(error => {
+            console.error('Error al enviar la solicitud:', error);
+            // En caso de error, también redirigir a index.html
+           // window.location.href = '/index.html';
+        });
+}
 
 function insertarRegistroEnBaseDeDatos() {
   // Obtener la fecha y hora actual
