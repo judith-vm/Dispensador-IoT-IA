@@ -113,7 +113,7 @@ function predecir() {
     var respuesta;
 
     if (resultado < 0.9) {
-      respuesta = "prueba";
+      respuesta = " ";
     } else if (resultado > 0.9) {
       // Insertar registro en la base de datos
       respuesta = "Perro detectado";
