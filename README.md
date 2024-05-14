@@ -5,7 +5,7 @@
 - ### Este proyecto consiste en un sistema de autenticación que utiliza inteligencia artificial para comparar el rostro y sea la de un perro y de un esp32 mas servomotor para la funcionalidad del dispensador. Una vez autenticado, comienza a liberarse la comida.
 - ### Acceso Seguro: Solo los rostros reconocidos como perros podran acceder.
 # 💻 Tecnologías Utilizadas
-### [![My Skills](https://skillicons.dev/icons?i=js,html,css,tensorflow)](https://skillicons.dev)
+### [![My Skills](https://skillicons.dev/icons?i=js,html,css,nodejs,tensorflow)](https://skillicons.dev)
 
 # 🧩 Materiales
 * Placa de desarrollo ESP32
@@ -19,26 +19,37 @@
 
 # 💡 Pasos para configurar placa ESP32
 
-### Conectar cables macho-macho a servomotor
+### 🔌 Conectar cables macho-macho al servomotor
 Lo primero que haremos sera conectar tres cables a nuestro servo motor (de preferencia que sean del mismo color que los que este tiene)
 
 ![cables](https://github.com/yairhdz24/Detector_Image/assets/157530840/d801fca0-5481-4aff-9f99-2fbe034b93f7)
 ![servo](https://github.com/yairhdz24/Detector_Image/assets/157530840/3f309f2b-e77c-4f01-972e-73106ea6c8cb)
 
-### Conectar cables macho-macho a placa ESP32
-Una vez que conectamos los cables a nuestro servo motor ahora los tenemos que conectar a nuestra placa, en este caso tenemos tres colores de cables, café (cable que va a GND o tierra), rojo (cable de alimentación va al pin VIN que es el pin que recibe la alimentación de energía para la placa), y por último el naranja (cable para conectar con el pin digital para generar la señal en nuestro caso usamos el pin 13) 
+### 🔌 Conectar cables macho-macho a la placa ESP32
+Una vez que conectamos los cables a nuestro servo motor, ahora los tenemos que conectar a nuestra placa. En este caso, tenemos tres colores de cables:
+
+* 🟤 Café (cable que va a GND o tierra)
+* 🔴 Rojo (cable de alimentación que va al pin VIN, que es el pin que recibe la alimentación de energía para la placa)
+* 🟠 Naranja (cable para conectar con el pin digital para generar la señal; en nuestro caso usamos el pin 13)
 
 ![placa](https://github.com/yairhdz24/Detector_Image/assets/157530840/3462bec3-e0ef-448b-9240-4b141c16b6e0)
 
-### Cargar código a placa ESP32
+### 🛠️ Cargar código a la placa ESP32
 Ya que tenemos nuestro servo motor a conectado a la placa es momento de cargar nuestro código, para esto vamos a conectar nuestra placa a través del cable micro USB a nuestra computadora, abriremos nuestro IDE de arduino donde añadiremos el código que vamos a cargar, seleccionamos la placa correspondiente que en nuestro caso es la placa ESP32-WROOM-DA Module y cargamos el código a nuestra placa desde nuestro IDE.
 
 ![Captura de pantalla 2024-05-13 103451](https://github.com/yairhdz24/Detector_Image/assets/157530840/addb31b8-b45b-4309-a466-01d04170db8b)
 
 
-### Probando que funciona
-Una vez que ya configuramos la placa podemos acceder al control de esta a través de la IP estática que le asignamos en nuestro código, solo tenemos que tener en cuenta que el dispositivo desde el cual vamos a controlar el alimentador tiene que estar conectado a la misma red en la cual configuramos el código para nuestra placa.
-![funcional](https://github.com/yairhdz24/Detector_Image/assets/157530840/5efb99f8-4f31-4a58-8dff-05ef0ca462d2)
+### 🐾 Funcionamiento
+El funcionamiento de este software es sencillo y efectivo. Actúa como un dispensador de comida para mascotas, especialmente diseñado para perros. Utiliza modelos de inteligencia artificial de TensorFlow para detectar la presencia de perros a través de una cámara.
+
+Una vez configurada la placa y asignada una IP estática, podemos acceder al control del dispensador desde cualquier dispositivo conectado a la misma red local. Esto puede ser un teléfono, una computadora o cualquier dispositivo conectado a la red.
+
+Cuando un perro se acerca al dispensador, la inteligencia artificial entra en acción. Los modelos de TensorFlow están específicamente entrenados para detectar perros. Si se detecta la presencia de un perro, se envía una señal al servomotor del dispensador, lo que activa la liberación de una porción de comida para perros.
+
+Además de dispensar comida, el software registra la fecha y hora de cada activación del servomotor en una base de datos. Esto nos permite llevar un registro preciso de cuándo se dispensó la comida.
+
+![image](https://github.com/yairhdz24/Dispensador-IoT-IA/assets/64717200/f23de2ad-9c88-4299-8eb1-f8590246e8d1)
 
 
 # 👥 Integrantes
