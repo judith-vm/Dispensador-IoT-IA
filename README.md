@@ -5,7 +5,7 @@
 - ### Este proyecto consiste en un sistema de autenticación que utiliza inteligencia artificial para comparar el rostro y sea la de un perro y de un esp32 mas servomotor para la funcionalidad del dispensador. Una vez autenticado, comienza a liberarse la comida.
 - ### Acceso Seguro: Solo los rostros reconocidos como perros podran acceder.
 # 💻 Tecnologías Utilizadas
-### [![My Skills](https://skillicons.dev/icons?i=js,html,css,nodejs,tensorflow)](https://skillicons.dev)
+### [![My Skills](https://skillicons.dev/icons?i=js,html,css,nodejs,tensorflow,arduino,supabase)](https://skillicons.dev)
 
 # 🧩 Materiales
 * Placa de desarrollo ESP32
