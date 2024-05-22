@@ -7,12 +7,12 @@ WiFiServer server(80);
 
 const uint32_t TiempoEsperaWifi = 5000;
 
-const char *ssid_1 = "INFINITUM464B";
-const char *password_1 = "Kh7Qm3Lg5p";
-const char *ssid_2 = "Administrativos";
-const char *password_2 = "admin_20204*";
-const char *ssid_3 = "Redmi Note 9 Pro";
-const char *password_3 = "Fate2020";
+const char *ssid_1 = "";
+const char *password_1 = "";
+const char *ssid_2 = "";
+const char *password_2 = "";
+const char *ssid_3 = "";
+const char *password_3 = "";
 const char *ssid_4 = "Aqui Agrega mas";
 const char *password_4 = "Aqui Agrega mas";
 
