@@ -129,7 +129,7 @@ function predecir() {
 }
 
 function esp320() {
-    fetch('http://192.168.1.71/dog_detected', {
+    fetch('http://192/dog_detected', {
             method: 'POST'
         })
         .then(response => {
